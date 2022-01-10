@@ -26,8 +26,8 @@ namespace MCTG.Test.BattleTests
             var db = new Database("Host=localhost;Username=postgres;Password=123;Database=MCTG");
             var battle = new Battle(player1, player2, new UserRepository(db));
 
-            var fireCard = new Card(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), "Dragon", "Spell", 100, "Fire", true);
-            var waterCard = new Card(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), "Ork", "Monster", 200, "Water", true);
+            var fireCard = new Card(Guid.NewGuid().ToString(), "b298eb4f-7b90-449a-9628-03a422f9eba3", "Dragon", "Spell", 100, "Fire", true);
+            var waterCard = new Card(Guid.NewGuid().ToString(), "b298eb4f-7b90-449a-9628-03a422f9eba3", "Ork", "Monster", 200, "Water", true);
             //Act
             bool effective = battle.ElementEffective(waterCard, fireCard);
 
@@ -49,7 +49,7 @@ namespace MCTG.Test.BattleTests
             var battle = new Battle(player1, player2, new UserRepository(db));
 
             var fireCard = new Card(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), "Dragon", "Spell", 100, "Fire", true);
-            var earthCard = new Card(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), "Ork", "Monster", 200, "Water", true);
+            var earthCard = new Card(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), "Ork", "Monster", 200, "Earth", true);
             //Act
             bool effective = battle.ElementEffective(fireCard, earthCard);
 
